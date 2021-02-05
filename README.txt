@@ -7,4 +7,14 @@ https://www.caa.co.uk/Data-and-analysis/UK-aviation-market/Flight-reliability/Da
 I have chosen October 19 and October 20 as these are the most recent months
 with data that have significant weather impacts during them, each having one
 or more significant named winter storms, and significant poor weather. The
-weather data comes from the U.K. Met Office. 
+weather data comes from the U.K. Met Office.
+
+The program will:
+1/Discover if there is any difference in the total number of delays between the
+two months
+2/See whether the delays were of a greater duration.
+3/Display the results in an easy to interpret form for the user.
+4/Be able to use any data in the correct format to compare months and keep a
+track on trends set during the COVID pandemic.
+
+Other functions may be added to assist the user. 
