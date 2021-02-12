@@ -16,8 +16,6 @@ print("Number of rows: " + str(len(df)))
 
 print(df.shape)
 
-print(df.columns)
-
 #reshape df to only consider useful information
 #df should only have date, departure, dest, sum of early/late/canx flights
 
@@ -35,3 +33,13 @@ print(df.columns)
 #there are no NaN - function de activated
 
 #Choose airports to compare
+
+print("There are {} unique origin countries considered".format(df['origin_destination_country'].nunique()))
+
+print("There are {} unique origins".format(df['origin_destination'].nunique()))
+
+print("The origin countries are:")
+print(df.origin_destination_country.unique())
+
+print("The unique origins are:")
+print(df.origin_destination.unique())
