@@ -1,5 +1,7 @@
 This project will aim to discover if there is any difference in the impact of
-weather related events before the COVID pandemic and during.
+weather related events before the COVID pandemic and during. This is to
+support the creation of a blog post or linkedin status and show off a little
+of my new python skills.
 
 The delay statistics are pulled from:
 https://www.caa.co.uk/Data-and-analysis/UK-aviation-market/Flight-reliability/Datasets/UK-flight-punctuality-data/
@@ -16,5 +18,9 @@ two months
 3/Display the results in an easy to interpret form for the user.
 4/Be able to use any data in the correct format to compare months and keep a
 track on trends set during the COVID pandemic.
+5/Source code etc will be uploaded to GitHub, so others can comment & help.
 
-Other functions may be added to assist the user. 
+Ultimately it may be necessary to export some of the data to excel to create
+visualisations. 
+
+Other functions may be added to assist the user.
