@@ -57,4 +57,4 @@ print(df1[['origin_destination_country', 'origin_destination',\
 
 #Then we need to find out what % for each destiantion was delayed
 
-#Then we need to split by date
+#Then we need to split by date - use run_date or reporting_period
