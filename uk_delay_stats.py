@@ -46,3 +46,15 @@ print(df.origin_destination_country.unique())
 
 print("The unique origins are:")
 print(df.origin_destination.unique())
+
+#Can slice either by Country (UK) or Airport. Lets choose UK initially.
+
+df1 = df.loc[df['origin_destination_country'] == 'UNITED KINGDOM']
+
+print(df1[['origin_destination_country', 'origin_destination',\
+    'number_flights_matched', 'on_time_or_early_percent',\
+     'delay_percent']].head(10))
+
+#Then we need to find out what % for each destiantion was delayed
+
+#Then we need to split by date
