@@ -29,8 +29,9 @@ Other functions may be added to assist the user.
 
 TODO list:
 
-#TODO: reorganise df1 output to reporting, origin_destination_country,
-#origin_destination, (everything else)
+#TODO: Clean Data (Remove duplicates) - This is caused by different airlines
+#flying to the same destination. flights should be combined before the
+#percentages are generated
 #TODO: Clean Data (Remove duplicates)
 #TODO: Organise by Date
 #TODO: Generate stats for delays - Mean, Median, Mode, LH / SH split
