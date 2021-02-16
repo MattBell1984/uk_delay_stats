@@ -61,6 +61,15 @@ print(df1[['origin_destination_country', 'reporting_airport',\
     'origin_destination','number_flights_matched', 'on_time_or_early_percent',\
     'delay_percent']].head(10))
 
+#TODO: reorganise df1 output to reporting, origin_destination_country,
+#origin_destination, (everything else)
+#TODO: Clean Data (Remove duplicates)
+#TODO: Organise by Date
+#TODO: Generate stats for delays - Mean, Median, Mode, LH / SH split
+#TODO: Pull all data together.
+#TODO: (Stretch Goal) Consider dashboard / program to allow users to explore
+#data - similar to bikeshare.
+
 #Then we need to find out what % for each destiantion was delayed
 
 
