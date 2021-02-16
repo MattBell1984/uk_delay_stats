@@ -10,27 +10,28 @@ df = pd.concat([df_1019, df_1020], ignore_index=True )
 
 destlist = ['HEATHROW', 'GATWICK']
 
-df1 = df[df.reporting_airport.isin(destlist)]
+df1 = df[df.reporting_airport.isin(destlist)].copy()
 
-#Create new df dealing with just airports named in destlist
+#Creates new df dealing with just airports named in destlist. .copy() method
+#prevents setcopywarning in delay_percent creation.
 
 df1['on_time_or_early_percent'] =\
     df1['flights_more_than_15_minutes_early_percent'] +\
     df1['flights_15_minutes_early_to_1_minute_early_percent']
 
-df1['delay_percent'] = df.loc[:,'flights_0_to_15_minutes_late_percent':'flights_more_than_360_minutes_late_percent'].sum(axis = 1)
+df1['delay_percent'] = df1.loc[:,'flights_0_to_15_minutes_late_percent':'flights_more_than_360_minutes_late_percent'].sum(axis = 1)
 
 print(df1.columns)
 
 
-print("Number of rows: " + str(len(df)))
+print("Number of rows: " + str(len(df1)))
 
 print(df1.shape)
 
 print("There are {} unique origin countries considered".format\
     (df1['origin_destination_country'].nunique()))
 
-print("There are {} unique origins".format(df['origin_destination'].nunique()))
+print("There are {} unique origins".format(df1['origin_destination'].nunique()))
 
 print("The origin countries are:")
 print(df1.origin_destination_country.unique())
