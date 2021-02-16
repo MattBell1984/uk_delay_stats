@@ -47,15 +47,21 @@ print(df.origin_destination_country.unique())
 print("The unique origins are:")
 print(df.origin_destination.unique())
 
-#Can slice either by Country (UK) or Airport. Lets choose UK initially. Limit
-#to 10 rows for readability. 
+#Can slice either by Country (UK) or Airport. Lets choose Heathrow &
+#Gatwick initially. Limit to 10 rows for readability.
 
-df1 = df.loc[df['origin_destination_country'] == 'UNITED KINGDOM']
+destlist = ['HEATHROW', 'GATWICK']
 
-print(df1[['origin_destination_country', 'origin_destination',\
-    'number_flights_matched', 'on_time_or_early_percent',\
-     'delay_percent']].head(10))
+df1 = df[df.reporting_airport.isin(destlist)]
+
+#This returns the values for all flights that originated from the airports in
+#the destlist list.
+
+print(df1[['origin_destination_country', 'reporting_airport',\
+    'origin_destination','number_flights_matched', 'on_time_or_early_percent',\
+    'delay_percent']].head(10))
 
 #Then we need to find out what % for each destiantion was delayed
+
 
 #Then we need to split by date - use run_date or reporting_period
