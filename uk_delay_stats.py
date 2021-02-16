@@ -58,7 +58,9 @@ print(df1[['reporting_period', 'reporting_airport', 'origin_destination_country'
     'delay_percent']].head(10))
 
 
-#TODO: Clean Data (Remove duplicates)
+#TODO: Clean Data (Remove duplicates) - This is caused by different airlines
+#flying to the same destination. flights should be combined before the
+#percentages are generated
 #TODO: Organise by Date
 #TODO: Generate stats for delays - Mean, Median, Mode, LH / SH split
 #TODO: Pull all data together.
