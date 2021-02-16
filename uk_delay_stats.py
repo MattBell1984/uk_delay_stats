@@ -47,7 +47,8 @@ print(df.origin_destination_country.unique())
 print("The unique origins are:")
 print(df.origin_destination.unique())
 
-#Can slice either by Country (UK) or Airport. Lets choose UK initially.
+#Can slice either by Country (UK) or Airport. Lets choose UK initially. Limit
+#to 10 rows for readability. 
 
 df1 = df.loc[df['origin_destination_country'] == 'UNITED KINGDOM']
 
