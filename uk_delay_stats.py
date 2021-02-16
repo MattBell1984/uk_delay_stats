@@ -57,11 +57,10 @@ df1 = df[df.reporting_airport.isin(destlist)]
 #This returns the values for all flights that originated from the airports in
 #the destlist list.
 
-print(df1[['origin_destination_country', 'reporting_airport',\
+print(df1[['reporting_airport', 'origin_destination_country', \
     'origin_destination','number_flights_matched', 'on_time_or_early_percent',\
     'delay_percent']].head(10))
 
-#TODO: reorganise df1 output to reporting, origin_destination_country,
 #origin_destination, (everything else)
 #TODO: Clean Data (Remove duplicates)
 #TODO: Organise by Date
