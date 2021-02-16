@@ -21,6 +21,19 @@ track on trends set during the COVID pandemic.
 5/Source code etc will be uploaded to GitHub, so others can comment & help.
 
 Ultimately it may be necessary to export some of the data to excel to create
-visualisations. 
+visualisations.
 
 Other functions may be added to assist the user.
+
+==================================================
+
+TODO list:
+
+#TODO: reorganise df1 output to reporting, origin_destination_country,
+#origin_destination, (everything else)
+#TODO: Clean Data (Remove duplicates)
+#TODO: Organise by Date
+#TODO: Generate stats for delays - Mean, Median, Mode, LH / SH split
+#TODO: Pull all data together.
+#TODO: (Stretch Goal) Consider dashboard / program to allow users to explore
+#data - similar to bikeshare.
