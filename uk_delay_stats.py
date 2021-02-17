@@ -21,6 +21,16 @@ df1['on_time_or_early_percent'] =\
 
 df1['delay_percent'] = df1.loc[:,'flights_0_to_15_minutes_late_percent':'flights_more_than_360_minutes_late_percent'].sum(axis = 1)
 
+df1['num_flights_delayed'] = (df1['number_flights_matched'] -\
+    df1['number_flights_cancelled']) * (df1['delay_percent'] / 100)
+
+df1['num_flights_delayed'] = df1['num_flights_delayed'].round(0).astype(int)
+
+df1['num_flights_ontime'] = (df1['number_flights_matched'] -\
+    df1['number_flights_cancelled']) * (df1['on_time_or_early_percent'] / 100)
+
+df1['num_flights_ontime'] = df1['num_flights_ontime'].round(0).astype(int)
+
 print(df1.columns)
 
 
@@ -53,9 +63,10 @@ print(df1.origin_destination.unique())
 
 
 
-print(df1[['reporting_period', 'reporting_airport', 'origin_destination_country', \
-    'origin_destination','number_flights_matched', 'on_time_or_early_percent',\
-    'delay_percent']].head(10))
+print(df1[['reporting_period', 'reporting_airport',\
+    'origin_destination_country', 'origin_destination',\
+    'number_flights_matched', 'num_flights_ontime', 'num_flights_delayed',\
+    'on_time_or_early_percent', 'delay_percent']].head(10))
 
 
 #TODO: Clean Data (Remove duplicates) - This is caused by different airlines
