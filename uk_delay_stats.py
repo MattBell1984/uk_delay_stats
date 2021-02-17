@@ -43,11 +43,18 @@ print("There are {} unique origin countries considered".format\
 
 print("There are {} unique origins".format(df1['origin_destination'].nunique()))
 
+print("=" * 40)
+
 print("The origin countries are:")
 print(df1.origin_destination_country.unique())
 
+print("=" * 40)
+
 print("The unique origins are:")
 print(df1.origin_destination.unique())
+
+print("=" * 40)
+
 
 #reshape df to only consider useful information
 #df should only have date, departure, dest, sum of early/late/canx flights
