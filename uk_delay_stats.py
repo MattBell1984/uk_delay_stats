@@ -19,7 +19,8 @@ df1['on_time_or_early_percent'] =\
     df1['flights_more_than_15_minutes_early_percent'] +\
     df1['flights_15_minutes_early_to_1_minute_early_percent']
 
-df1['delay_percent'] = df1.loc[:,'flights_0_to_15_minutes_late_percent':'flights_more_than_360_minutes_late_percent'].sum(axis = 1)
+df1['delay_percent'] = df1.loc[:,'flights_0_to_15_minutes_late_percent'\
+    :'flights_more_than_360_minutes_late_percent'].sum(axis = 1)
 
 #Creates new column summing early or late percentages
 
