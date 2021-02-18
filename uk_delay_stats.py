@@ -81,6 +81,8 @@ print("=" * 40)
 print(df1.groupby(df1['origin_destination'])[['number_flights_matched',\
     'num_flights_ontime', 'num_flights_delayed']].sum().head(10))
 
+#Shows raw number of delayed / early flights by destination
+
 print("=" * 40)
 
 print(df1[['reporting_period', 'reporting_airport',\
@@ -90,7 +92,12 @@ print(df1[['reporting_period', 'reporting_airport',\
 
 print("=" * 40)
 
+#Sort destinations by early %
 
+print(df1[['reporting_airport', 'origin_destination',\
+    'on_time_or_early_percent','num_flights_ontime']]\
+    .groupby('origin_destination').agg(['mean','count']).sort_values\
+    (by=('on_time_or_early_percent','mean'), ascending=False))
 
 #Displays selected columns from filtered database & limits to first 10 rows
 
