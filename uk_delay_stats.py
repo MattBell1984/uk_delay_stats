@@ -67,19 +67,30 @@ print("=" * 40)
 
 #there are no NaN - function de activated
 
-aggregation_functions = {'reporting_period': 'first',\
-    'reporting_airport': 'first', 'origin_destination_country': 'first',\
-    'origin_destination': 'first', 'number_flights_matched': 'sum',\
-    'num_flights_ontime': 'sum', 'num_flights_delayed': 'sum'}
+#aggregation_functions = {'reporting_period': 'first',\
+    #'reporting_airport': 'first', 'origin_destination_country': 'first',\
+    #'origin_destination': 'first', 'number_flights_matched': 'sum',\
+    #'num_flights_ontime': 'sum', 'num_flights_delayed': 'sum'}
 
-df1 = df1.groupby(df1['origin_destination']).aggregate(aggregation_functions)
+#df1 = df1.groupby(df1['origin_destination']).aggregate(aggregation_functions)
 
-df1 = df1.sort_values('reporting_airport')
+#df1 = df1.sort_values('reporting_airport')
+
+
+
+print(df1.groupby(df1['origin_destination'])[['number_flights_matched',\
+    'num_flights_ontime', 'num_flights_delayed']].sum().head(10))
+
+print("=" * 40)
 
 print(df1[['reporting_period', 'reporting_airport',\
-    'origin_destination_country',\
+    'origin_destination_country','origin_destination',\
     'number_flights_matched', 'num_flights_ontime',\
-    'num_flights_delayed',]].head(10))
+    'num_flights_delayed']].head(10))
+
+print("=" * 40)
+
+
 
 #Displays selected columns from filtered database & limits to first 10 rows
 
