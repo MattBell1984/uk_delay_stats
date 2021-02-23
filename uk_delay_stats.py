@@ -166,7 +166,24 @@ print(df2[['reporting_airport', 'origin_destination',\
     .groupby('origin_destination').agg(['mean','count']).sort_values\
     (by=('delay_percent','mean'), ascending=False).head(10))
 
+print("=" * 40)
+print("=" * 40)
 
+print("The average % of flights delayed in October 2019 (pre COVID) was {}."\
+    .format(df1['delay_percent'].agg(['mean'])))
+
+print("The average % of flights delayed in October 2020 (post COVID) was {}."\
+    .format(df2['delay_percent'].agg(['mean'])))
+
+print("The number of flights that were logged in 2019 was {}.".format(\
+    (df1['number_flights_matched'] - df1['number_flights_cancelled'])\
+    .agg(['sum'])))
+
+print("The number of flights that were logged in 2020 was {}.".format(\
+    (df2['number_flights_matched'] - df2['number_flights_cancelled'])\
+    .agg(['sum'])))
+
+    
 #TODO: Clean Data (Remove duplicates) - This is caused by different airlines
 #flying to the same destination. flights should be combined before the
 #percentages are generated
