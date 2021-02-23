@@ -10,8 +10,8 @@ dfb = df_1020
 
 destlist = ['HEATHROW', 'GATWICK']
 
-df1 = df[df.reporting_airport.isin(destlist)].copy()
-df2 = dfb[df.reporting_airport.isin(destlist)].copy()
+df1 = df[df['reporting_airport'].isin(destlist)].copy()
+df2 = dfb[dfb['reporting_airport'].isin(destlist)].copy()
 #Creates new df dealing with just airports named in destlist. .copy() method
 #prevents setcopywarning in delay_percent creation.
 
