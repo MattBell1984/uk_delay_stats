@@ -184,9 +184,9 @@ print("The number of flights that were logged in 2020 was {}.".format(\
     .agg(['sum'])))
 
 
-#TODO: Clean Data (Remove duplicates) - This is caused by different airlines
-#flying to the same destination. flights should be combined before the
-#percentages are generated
+#TODO: Sort Destinations by early / late % needs to filter by number of
+#flights being operated there - ideally at least 12 to give a good spread over
+#the whole month. 
 
 #TODO: Generate stats for delays - Mean, Median, Mode, LH / SH split
 #TODO: Pull all data together.
