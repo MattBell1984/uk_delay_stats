@@ -4,7 +4,7 @@ import numpy as np
 df_1019 = pd.read_csv('201910_Punctuality_Statistics_Full_Analysis.csv')
 df_1020 = pd.read_csv('202010_Punctuality_Statistics_Full_Analysis.csv')
 
-df = pd.concat([df_1019, df_1020], ignore_index=True )
+df = df_1019
 
 #Read files & combine
 
@@ -79,9 +79,14 @@ print("=" * 40)
 
 
 print(df1.groupby(df1['origin_destination'])[['number_flights_matched',\
-    'num_flights_ontime', 'num_flights_delayed']].sum().head(10))
+    'num_flights_ontime','on_time_or_early_percent',\
+    'num_flights_delayed', 'delay_percent']].sum().head(10))
 
 #Shows raw number of delayed / early flights by destination
+
+print("=" * 40)
+
+
 
 print("=" * 40)
 
@@ -97,9 +102,16 @@ print("=" * 40)
 print(df1[['reporting_airport', 'origin_destination',\
     'on_time_or_early_percent','num_flights_ontime']]\
     .groupby('origin_destination').agg(['mean','count']).sort_values\
-    (by=('on_time_or_early_percent','mean'), ascending=False))
+    (by=('on_time_or_early_percent','mean'), ascending=False).head(10))
 
-#Displays selected columns from filtered database & limits to first 10 rows
+#Sort destinations by late %
+
+print(df1[['reporting_airport', 'origin_destination',\
+    'delay_percent', 'num_flights_delayed']]\
+    .groupby('origin_destination').agg(['mean','count']).sort_values\
+    (by=('delay_percent','mean'), ascending=False).head(10))
+
+
 
 
 #TODO: Clean Data (Remove duplicates) - This is caused by different airlines
