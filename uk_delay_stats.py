@@ -183,7 +183,7 @@ print("The number of flights that were logged in 2020 was {}.".format(\
     (df2['number_flights_matched'] - df2['number_flights_cancelled'])\
     .agg(['sum'])))
 
-    
+
 #TODO: Clean Data (Remove duplicates) - This is caused by different airlines
 #flying to the same destination. flights should be combined before the
 #percentages are generated
