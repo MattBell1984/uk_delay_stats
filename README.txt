@@ -29,11 +29,10 @@ Other functions may be added to assist the user.
 
 TODO list:
 
-#TODO: Clean Data (Remove duplicates) - This is caused by different airlines
-#flying to the same destination. flights should be combined before the
-#percentages are generated
+#TODO: Sort Destinations by early / late % needs to filter by number of
+#flights being operated there - ideally at least 12 to give a good spread over
+#the whole month.
 #TODO: Clean Data (Remove duplicates)
-#TODO: Organise by Date
 #TODO: Generate stats for delays - Mean, Median, Mode, LH / SH split
 #TODO: Pull all data together.
 #TODO: (Stretch Goal) Consider dashboard / program to allow users to explore
