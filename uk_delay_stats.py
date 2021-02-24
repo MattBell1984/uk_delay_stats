@@ -98,17 +98,19 @@ df2['num_flights_ontime'] = (df2['number_flights_matched'] -\
 
 df2['num_flights_ontime'] = df2['num_flights_ontime'].round(0).astype(int)
 
-
+# Print Below Prints raw data for destination, num flights ontime, % delayed,
+#% for 2019 (limited to 10)
 print(df1.groupby(['origin_destination', 'reporting_airport',\
     'number_flights_matched']).agg({'num_flights_ontime':\
     np.sum, 'on_time_or_early_percent': np.mean, 'num_flights_delayed':\
     np.sum, 'delay_percent': np.mean}).head(10))
 
-#Shows raw number of delayed / early flights by destination
+
 
 print("=" * 40)
 
-
+#Print Below lists number of flights ontime, delayed as raw number of flights
+#for 2019
 print(df1[['reporting_period', 'reporting_airport',\
     'origin_destination_country','origin_destination',\
     'number_flights_matched', 'num_flights_ontime',\
@@ -116,7 +118,9 @@ print(df1[['reporting_period', 'reporting_airport',\
 
 print("=" * 40)
 
-#Sort destinations by early %
+#Print Below lists 10 flights with best early / ontime performance for all
+#airports for 2019
+
 
 print(df1[['reporting_airport', 'origin_destination',\
     'on_time_or_early_percent','num_flights_ontime']]\
@@ -124,7 +128,8 @@ print(df1[['reporting_airport', 'origin_destination',\
     (by=('on_time_or_early_percent','mean'), ascending=False).head(10))
 
 print("=" * 40)
-#Sort destinations by late %
+#Print Below lists 10 flights with worst late performance for all
+#airports
 
 print(df1[['reporting_airport', 'origin_destination',\
     'delay_percent', 'num_flights_delayed']]\
@@ -134,16 +139,19 @@ print(df1[['reporting_airport', 'origin_destination',\
 print("=" * 40)
 print("=" * 40)
 
+
+#Print Below shows all flights in Alphabet order with num matched vs early
+#late for 2020
 print(df2.groupby(['origin_destination', 'reporting_airport',\
     'number_flights_matched']).agg({'num_flights_ontime':\
     np.sum, 'on_time_or_early_percent': np.mean, 'num_flights_delayed':\
     np.sum, 'delay_percent': np.mean}).head(10))
 
-#Shows raw number of delayed / early flights by destination
+
 
 print("=" * 40)
 
-
+#Lists all flights for 2020 with numbers of flights
 print(df2[['reporting_period', 'reporting_airport',\
     'origin_destination_country','origin_destination',\
     'number_flights_matched', 'num_flights_ontime',\
@@ -151,7 +159,8 @@ print(df2[['reporting_period', 'reporting_airport',\
 
 print("=" * 40)
 
-#Sort destinations by early %
+#Print Below lists 10 flights with best early / ontime performance for all
+#airports for 2020
 
 print(df2[['reporting_airport', 'origin_destination',\
     'on_time_or_early_percent','num_flights_ontime']]\
@@ -159,7 +168,8 @@ print(df2[['reporting_airport', 'origin_destination',\
     (by=('on_time_or_early_percent','mean'), ascending=False).head(10))
 
 print("=" * 40)
-#Sort destinations by late %
+#Print Below lists 10 flights with worst delay performance for all
+#airports for 2020
 
 print(df2[['reporting_airport', 'origin_destination',\
     'delay_percent', 'num_flights_delayed']]\
@@ -186,7 +196,7 @@ print("The number of flights that were logged in 2020 was {}.".format(\
 
 #TODO: Sort Destinations by early / late % needs to filter by number of
 #flights being operated there - ideally at least 12 to give a good spread over
-#the whole month. 
+#the whole month.
 
 #TODO: Generate stats for delays - Mean, Median, Mode, LH / SH split
 #TODO: Pull all data together.
