@@ -121,8 +121,9 @@ print("=" * 40)
 #Print Below lists 10 flights with best early / ontime performance for all
 #airports for 2019
 
+mask_df1 = (df1[df1.number_flights_matched > 10])
 
-print(df1[['reporting_airport', 'origin_destination',\
+print(mask_df1[['reporting_airport', 'origin_destination',\
     'on_time_or_early_percent','num_flights_ontime']]\
     .groupby('origin_destination').agg(['mean','count']).sort_values\
     (by=('on_time_or_early_percent','mean'), ascending=False).head(10))
@@ -131,13 +132,14 @@ print("=" * 40)
 #Print Below lists 10 flights with worst late performance for all
 #airports
 
-print(df1[['reporting_airport', 'origin_destination',\
+print(mask_df1[['reporting_airport', 'origin_destination',\
     'delay_percent', 'num_flights_delayed']]\
     .groupby('origin_destination').agg(['mean','count']).sort_values\
     (by=('delay_percent','mean'), ascending=False).head(10))
 
 print("=" * 40)
 print("=" * 40)
+
 
 
 #Print Below shows all flights in Alphabet order with num matched vs early
@@ -162,7 +164,9 @@ print("=" * 40)
 #Print Below lists 10 flights with best early / ontime performance for all
 #airports for 2020
 
-print(df2[['reporting_airport', 'origin_destination',\
+mask_df2 = (df2[df2.number_flights_matched > 10])
+
+print(mask_df2[['reporting_airport', 'origin_destination',\
     'on_time_or_early_percent','num_flights_ontime']]\
     .groupby('origin_destination').agg(['mean','count']).sort_values\
     (by=('on_time_or_early_percent','mean'), ascending=False).head(10))
@@ -171,7 +175,7 @@ print("=" * 40)
 #Print Below lists 10 flights with worst delay performance for all
 #airports for 2020
 
-print(df2[['reporting_airport', 'origin_destination',\
+print(mask_df2[['reporting_airport', 'origin_destination',\
     'delay_percent', 'num_flights_delayed']]\
     .groupby('origin_destination').agg(['mean','count']).sort_values\
     (by=('delay_percent','mean'), ascending=False).head(10))
