@@ -198,12 +198,9 @@ print("The number of flights that were logged in 2020 was {}.".format(\
     .agg(['sum'])))
 
 
-#TODO: Sort Destinations by early / late % needs to filter by number of
-#flights being operated there - ideally at least 12 to give a good spread over
-#the whole month.
 
 #TODO: Generate stats for delays - Mean, Median, Mode, LH / SH split
-#TODO: Pull all data together.
+#TODO: Pull all data together & export to excel or other program
 #TODO: (Stretch Goal) Consider dashboard / program to allow users to explore
 #data - similar to bikeshare.
 
