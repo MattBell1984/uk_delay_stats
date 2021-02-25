@@ -226,6 +226,35 @@ print("{} - 61 to 120 mins late \n{} - 121 to 180 mins late"\
 print("{} - 181 to 360 mins late \n{} - more than 360 mins late"\
     .format(to_360_late_19, g_360_late_19))
 
+print("=" * 40)
+
+m_15_early_20 = (df2['flights_more_than_15_minutes_early_percent'] != 0).sum()
+to_1_early_20 = (df2['flights_15_minutes_early_to_1_minute_early_percent']\
+    != 0).sum()
+to_15_late_20 = (df2['flights_0_to_15_minutes_late_percent'] != 0).sum()
+to_30_late_20 = (df2['flights_between_16_and_30_minutes_late_percent'] != 0)\
+    .sum()
+to_60_late_20 = (df2['flights_between_31_and_60_minutes_late_percent']\
+    != 0).sum()
+to_120_late_20 = (df2['flights_between_61_and_120_minutes_late_percent']\
+    != 0).sum()
+to_180_late_20 = (df2['flights_between_121_and_180_minutes_late_percent']\
+    != 0).sum()
+to_360_late_20 = (df2['flights_between_181_and_360_minutes_late_percent']\
+    != 0).sum()
+g_360_late_20 = (df2['flights_more_than_360_minutes_late_percent'] != 0).sum()
+
+print("The breakdown of flights for 2020 (total num flights) was:")
+
+print("{} - more than 15 mins early \n{} - 15 mins to 1 min early".format\
+    (m_15_early_20, to_1_early_20))
+print("{} - to 15 mins late \n{} - 16 to 30 mins late \n{} - 31 to 60 mins" \
+    " late".format(to_15_late_20, to_30_late_19, to_60_late_20))
+print("{} - 61 to 120 mins late \n{} - 121 to 180 mins late"\
+    .format(to_120_late_20, to_180_late_20))
+print("{} - 181 to 360 mins late \n{} - more than 360 mins late"\
+    .format(to_360_late_20, g_360_late_20))
+
 #TODO: Generate stats for delays - Mean, Median, Mode, LH / SH split
 #TODO: Pull all data together & export to excel or other program
 #TODO: (Stretch Goal) Consider dashboard / program to allow users to explore
