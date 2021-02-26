@@ -199,21 +199,26 @@ print("The number of flights that were logged in 2020 was {}.".format(\
 
 print("=" * 40)
 
-m_15_early_19 = (df1['flights_more_than_15_minutes_early_percent'] != 0).sum()
-to_1_early_19 = (df1['flights_15_minutes_early_to_1_minute_early_percent']\
-    != 0).sum()
-to_15_late_19 = (df1['flights_0_to_15_minutes_late_percent'] != 0).sum()
-to_30_late_19 = (df1['flights_between_16_and_30_minutes_late_percent'] != 0)\
-    .sum()
-to_60_late_19 = (df1['flights_between_31_and_60_minutes_late_percent']\
-    != 0).sum()
-to_120_late_19 = (df1['flights_between_61_and_120_minutes_late_percent']\
-    != 0).sum()
-to_180_late_19 = (df1['flights_between_121_and_180_minutes_late_percent']\
-    != 0).sum()
-to_360_late_19 = (df1['flights_between_181_and_360_minutes_late_percent']\
-    != 0).sum()
-g_360_late_19 = (df1['flights_more_than_360_minutes_late_percent'] != 0).sum()
+act_flights_19 = df1['number_flights_matched'] - df1['number_flights_cancelled']
+
+m_15_early_19 = ((df1['flights_more_than_15_minutes_early_percent'] / 100) *\
+    act_flights_19).round(0).sum()
+to_1_early_19 = ((df1['flights_15_minutes_early_to_1_minute_early_percent']\
+    / 100) *act_flights_19).round(0).sum()
+to_15_late_19 = ((df1['flights_0_to_15_minutes_late_percent']  / 100) *\
+    act_flights_19).round(0).sum()
+to_30_late_19 = ((df1['flights_between_16_and_30_minutes_late_percent']  / 100\
+    ) * act_flights_19).round(0).sum()
+to_60_late_19 = ((df1['flights_between_31_and_60_minutes_late_percent']\
+    / 100) * act_flights_19).round(0).sum()
+to_120_late_19 = ((df1['flights_between_61_and_120_minutes_late_percent']\
+    / 100) * act_flights_19).round(0).sum()
+to_180_late_19 = ((df1['flights_between_121_and_180_minutes_late_percent']\
+    / 100) * act_flights_19).round(0).sum()
+to_360_late_19 = ((df1['flights_between_181_and_360_minutes_late_percent']\
+    / 100) * act_flights_19).round(0).sum()
+g_360_late_19 = ((df1['flights_more_than_360_minutes_late_percent']  / 100) *\
+    act_flights_19).round(0).sum()
 
 print("The breakdown of flights for 2019 (total num flights) was:")
 
@@ -228,21 +233,26 @@ print("{} - 181 to 360 mins late \n{} - more than 360 mins late"\
 
 print("=" * 40)
 
-m_15_early_20 = (df2['flights_more_than_15_minutes_early_percent'] != 0).sum()
-to_1_early_20 = (df2['flights_15_minutes_early_to_1_minute_early_percent']\
-    != 0).sum()
-to_15_late_20 = (df2['flights_0_to_15_minutes_late_percent'] != 0).sum()
-to_30_late_20 = (df2['flights_between_16_and_30_minutes_late_percent'] != 0)\
-    .sum()
-to_60_late_20 = (df2['flights_between_31_and_60_minutes_late_percent']\
-    != 0).sum()
-to_120_late_20 = (df2['flights_between_61_and_120_minutes_late_percent']\
-    != 0).sum()
-to_180_late_20 = (df2['flights_between_121_and_180_minutes_late_percent']\
-    != 0).sum()
-to_360_late_20 = (df2['flights_between_181_and_360_minutes_late_percent']\
-    != 0).sum()
-g_360_late_20 = (df2['flights_more_than_360_minutes_late_percent'] != 0).sum()
+act_flights_20 = df2['number_flights_matched'] - df2['number_flights_cancelled']
+
+m_15_early_20 = ((df2['flights_more_than_15_minutes_early_percent'] / 100) *\
+    act_flights_20).round(0).sum()
+to_1_early_20 = ((df2['flights_15_minutes_early_to_1_minute_early_percent']\
+    / 100) *act_flights_19).round(0).sum()
+to_15_late_20 = ((df2['flights_0_to_15_minutes_late_percent']  / 100) *\
+    act_flights_20).round(0).sum()
+to_30_late_20 = ((df2['flights_between_16_and_30_minutes_late_percent']  / 100\
+    ) * act_flights_20).round(0).sum()
+to_60_late_20 = ((df2['flights_between_31_and_60_minutes_late_percent']\
+    / 100) * act_flights_20).round(0).sum()
+to_120_late_20 = ((df2['flights_between_61_and_120_minutes_late_percent']\
+    / 100) * act_flights_20).round(0).sum()
+to_180_late_20 = ((df2['flights_between_121_and_180_minutes_late_percent']\
+    / 100) * act_flights_20).round(0).sum()
+to_360_late_20 = ((df2['flights_between_181_and_360_minutes_late_percent']\
+    / 100) * act_flights_20).round(0).sum()
+g_360_late_20 = ((df2['flights_more_than_360_minutes_late_percent']  / 100) *\
+    act_flights_20).round(0).sum()
 
 print("The breakdown of flights for 2020 (total num flights) was:")
 
