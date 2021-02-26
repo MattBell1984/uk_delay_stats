@@ -34,6 +34,8 @@ TODO list:
 #the whole month.
 #TODO: Clean Data (Remove duplicates)
 #TODO: Generate stats for delays - Mean, Median, Mode, LH / SH split
-#TODO: Pull all data together.
+#TODO: Consider data required and create Dataframe containing it. This must be
+    #done to export to excel or CSV (to enable graphing). Else consider python
+    #module that can create graphs. 
 #TODO: (Stretch Goal) Consider dashboard / program to allow users to explore
 #data - similar to bikeshare.
