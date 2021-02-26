@@ -311,7 +311,9 @@ print("{} - 181 to 360 mins late \n{} - more than 360 mins late"\
     .format(t360pc20, g360pc20))
 
 #TODO: Generate stats for delays - Mean, Median, Mode, LH / SH split
-#TODO: Pull all data together & export to excel or other program
+#TODO: Consider data required and create Dataframe containing it. This must be
+    #done to export to excel or CSV (to enable graphing). Else consider python
+    #module that can create graphs. 
 #TODO: (Stretch Goal) Consider dashboard / program to allow users to explore
 #data - similar to bikeshare.
 
