@@ -220,6 +220,17 @@ to_360_late_19 = ((df1['flights_between_181_and_360_minutes_late_percent']\
 g_360_late_19 = ((df1['flights_more_than_360_minutes_late_percent']  / 100) *\
     act_flights_19).round(0).sum()
 
+
+e15pc19 = (df1['flights_more_than_15_minutes_early_percent']).mean()
+e1pc19 = (df1['flights_15_minutes_early_to_1_minute_early_percent']).mean()
+t15pc19 = (df1['flights_0_to_15_minutes_late_percent']).mean()
+t30pc19 = (df1['flights_between_16_and_30_minutes_late_percent']).mean()
+t60pc19 = (df1['flights_between_31_and_60_minutes_late_percent']).mean()
+t120pc19 = (df1['flights_between_61_and_120_minutes_late_percent']).mean()
+t180pc19 = (df1['flights_between_121_and_180_minutes_late_percent']).mean()
+t360pc19 = (df1['flights_between_181_and_360_minutes_late_percent']).mean()
+g360pc19 = (df1['flights_more_than_360_minutes_late_percent']).mean()
+
 print("The breakdown of flights for 2019 (total num flights) was:")
 
 print("{} - more than 15 mins early \n{} - 15 mins to 1 min early".format\
@@ -230,6 +241,18 @@ print("{} - 61 to 120 mins late \n{} - 121 to 180 mins late"\
     .format(to_120_late_19, to_180_late_19))
 print("{} - 181 to 360 mins late \n{} - more than 360 mins late"\
     .format(to_360_late_19, g_360_late_19))
+
+print("The average % for each delay category in 2019 was:")
+
+print("{} - more than 15 mins early \n{} - 15 mins to 1 min early".format\
+    (e15pc19, e1pc19))
+print("{} - to 15 mins late \n{} - 16 to 30 mins late \n{} - 31 to 60 mins" \
+    " late".format(t15pc19, t30pc19, t60pc19))
+print("{} - 61 to 120 mins late \n{} - 121 to 180 mins late"\
+    .format(t120pc19, t180pc19))
+print("{} - 181 to 360 mins late \n{} - more than 360 mins late"\
+    .format(t360pc19, g360pc19))
+
 
 print("=" * 40)
 
@@ -254,6 +277,17 @@ to_360_late_20 = ((df2['flights_between_181_and_360_minutes_late_percent']\
 g_360_late_20 = ((df2['flights_more_than_360_minutes_late_percent']  / 100) *\
     act_flights_20).round(0).sum()
 
+e15pc20 = (df2['flights_more_than_15_minutes_early_percent']).mean()
+e1pc20 = (df2['flights_15_minutes_early_to_1_minute_early_percent']).mean()
+t15pc20 = (df2['flights_0_to_15_minutes_late_percent']).mean()
+t30pc20 = (df2['flights_between_16_and_30_minutes_late_percent']).mean()
+t60pc20 = (df2['flights_between_31_and_60_minutes_late_percent']).mean()
+t120pc20 = (df2['flights_between_61_and_120_minutes_late_percent']).mean()
+t180pc20 = (df2['flights_between_121_and_180_minutes_late_percent']).mean()
+t360pc20 = (df2['flights_between_181_and_360_minutes_late_percent']).mean()
+g360pc20 = (df2['flights_more_than_360_minutes_late_percent']).mean()
+
+
 print("The breakdown of flights for 2020 (total num flights) was:")
 
 print("{} - more than 15 mins early \n{} - 15 mins to 1 min early".format\
@@ -264,6 +298,17 @@ print("{} - 61 to 120 mins late \n{} - 121 to 180 mins late"\
     .format(to_120_late_20, to_180_late_20))
 print("{} - 181 to 360 mins late \n{} - more than 360 mins late"\
     .format(to_360_late_20, g_360_late_20))
+
+print("The average % for each delay category in 2020 was:")
+
+print("{} - more than 15 mins early \n{} - 15 mins to 1 min early".format\
+    (e15pc20, e1pc20))
+print("{} - to 15 mins late \n{} - 16 to 30 mins late \n{} - 31 to 60 mins" \
+    " late".format(t15pc20, t30pc20, t60pc20))
+print("{} - 61 to 120 mins late \n{} - 121 to 180 mins late"\
+    .format(t120pc20, t180pc20))
+print("{} - 181 to 360 mins late \n{} - more than 360 mins late"\
+    .format(t360pc20, g360pc20))
 
 #TODO: Generate stats for delays - Mean, Median, Mode, LH / SH split
 #TODO: Pull all data together & export to excel or other program
