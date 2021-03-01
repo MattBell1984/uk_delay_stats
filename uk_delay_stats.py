@@ -7,6 +7,7 @@ df_1020 = pd.read_csv('202010_Punctuality_Statistics_Full_Analysis.csv')
 df = df_1019
 dfb = df_1020
 
+writer = pd.ExcelWriter('otp_multiple.xlsx')
 
 destlist = ['HEATHROW', 'GATWICK']
 
@@ -122,20 +123,31 @@ print("=" * 40)
 #airports for 2019
 
 mask_df1 = (df1[df1.number_flights_matched > 10])
-
+#>>>>> Export to Excel
 print(mask_df1[['reporting_airport', 'origin_destination',\
     'on_time_or_early_percent','num_flights_ontime']]\
     .groupby('origin_destination').agg(['mean','count']).sort_values\
     (by=('on_time_or_early_percent','mean'), ascending=False).head(10))
 
+otp2019 = mask_df1[['reporting_airport', 'origin_destination',\
+    'on_time_or_early_percent','num_flights_ontime']]\
+    .groupby('origin_destination').agg(['mean','count']).sort_values\
+    (by=('on_time_or_early_percent','mean'), ascending=False).head(10)
+
 print("=" * 40)
 #Print Below lists 10 flights with worst late performance for all
 #airports
-
+#>>>>> Export to Excel
 print(mask_df1[['reporting_airport', 'origin_destination',\
     'delay_percent', 'num_flights_delayed']]\
     .groupby('origin_destination').agg(['mean','count']).sort_values\
     (by=('delay_percent','mean'), ascending=False).head(10))
+
+dla2019 = mask_df1[['reporting_airport', 'origin_destination',\
+    'delay_percent', 'num_flights_delayed']]\
+    .groupby('origin_destination').agg(['mean','count']).sort_values\
+    (by=('delay_percent','mean'), ascending=False).head(10)
+
 
 print("=" * 40)
 print("=" * 40)
@@ -163,7 +175,7 @@ print("=" * 40)
 
 #Print Below lists 10 flights with best early / ontime performance for all
 #airports for 2020
-
+#>>>>> Export to Excel
 mask_df2 = (df2[df2.number_flights_matched > 10])
 
 print(mask_df2[['reporting_airport', 'origin_destination',\
@@ -171,14 +183,24 @@ print(mask_df2[['reporting_airport', 'origin_destination',\
     .groupby('origin_destination').agg(['mean','count']).sort_values\
     (by=('on_time_or_early_percent','mean'), ascending=False).head(10))
 
+otp2020 = mask_df2[['reporting_airport', 'origin_destination',\
+    'on_time_or_early_percent','num_flights_ontime']]\
+    .groupby('origin_destination').agg(['mean','count']).sort_values\
+    (by=('on_time_or_early_percent','mean'), ascending=False).head(10)
+
 print("=" * 40)
 #Print Below lists 10 flights with worst delay performance for all
 #airports for 2020
-
+#>>>>> Export to Excel
 print(mask_df2[['reporting_airport', 'origin_destination',\
     'delay_percent', 'num_flights_delayed']]\
     .groupby('origin_destination').agg(['mean','count']).sort_values\
     (by=('delay_percent','mean'), ascending=False).head(10))
+
+dla2020 = mask_df2[['reporting_airport', 'origin_destination',\
+    'delay_percent', 'num_flights_delayed']]\
+    .groupby('origin_destination').agg(['mean','count']).sort_values\
+    (by=('delay_percent','mean'), ascending=False).head(10)
 
 print("=" * 40)
 print("=" * 40)
@@ -232,7 +254,7 @@ t360pc19 = (df1['flights_between_181_and_360_minutes_late_percent']).mean()
 g360pc19 = (df1['flights_more_than_360_minutes_late_percent']).mean()
 
 print("The breakdown of flights for 2019 (total num flights) was:")
-
+#>>>>> Export to Excel (somehow)
 print("{} - more than 15 mins early \n{} - 15 mins to 1 min early".format\
     (m_15_early_19, to_1_early_19))
 print("{} - to 15 mins late \n{} - 16 to 30 mins late \n{} - 31 to 60 mins" \
@@ -289,7 +311,7 @@ g360pc20 = (df2['flights_more_than_360_minutes_late_percent']).mean()
 
 
 print("The breakdown of flights for 2020 (total num flights) was:")
-
+#>>>>> Export to Excel
 print("{} - more than 15 mins early \n{} - 15 mins to 1 min early".format\
     (m_15_early_20, to_1_early_20))
 print("{} - to 15 mins late \n{} - 16 to 30 mins late \n{} - 31 to 60 mins" \
@@ -310,10 +332,20 @@ print("{} - 61 to 120 mins late \n{} - 121 to 180 mins late"\
 print("{} - 181 to 360 mins late \n{} - more than 360 mins late"\
     .format(t360pc20, g360pc20))
 
+
+
+otp2019.to_excel(writer, sheet_name='otp2019')
+dla2019.to_excel(writer, sheet_name='dla2019')
+otp2020.to_excel(writer, sheet_name='otp2020')
+dla2020.to_excel(writer, sheet_name='dla2020')
+
+writer.save()
+
+
 #TODO: Generate stats for delays - Mean, Median, Mode, LH / SH split
 #TODO: Consider data required and create Dataframe containing it. This must be
     #done to export to excel or CSV (to enable graphing). Else consider python
-    #module that can create graphs. 
+    #module that can create graphs.
 #TODO: (Stretch Goal) Consider dashboard / program to allow users to explore
 #data - similar to bikeshare.
 
