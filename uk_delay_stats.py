@@ -335,6 +335,19 @@ print("{} - 61 to 120 mins late \n{} - 121 to 180 mins late"\
 print("{} - 181 to 360 mins late \n{} - more than 360 mins late"\
     .format(to_360_late_20, g_360_late_20))
 
+dla_breakdown_20 = {
+    'Delay Time (mins)' :['> 15 early', '15 - 0 early', \
+    '0 - 15 late', '16 - 30 late', '31 - 60 late', '61 - 120 late',\
+    '121 - 180 late', '181 - 360 late', '>360 mins late'],
+    'number' :[m_15_early_20, to_1_early_20, to_15_late_20, to_30_late_20,\
+    to_60_late_20, to_120_late_20, to_180_late_20, to_360_late_20, \
+    g_360_late_20],
+    'percent' :[e15pc20, e1pc20, t15pc20, t30pc20, t60pc20, t120pc20,t180pc20,\
+    t360pc20, g360pc20]
+}
+
+dlafigs20 = pd.DataFrame(data= dla_breakdown_20)
+
 print("The average % for each delay category in 2020 was:")
 
 print("{} - more than 15 mins early \n{} - 15 mins to 1 min early".format\
@@ -354,6 +367,7 @@ dla2019.to_excel(writer, sheet_name='dla2019')
 otp2020.to_excel(writer, sheet_name='otp2020')
 dla2020.to_excel(writer, sheet_name='dla2020')
 dlafigs19.to_excel(writer, sheet_name= 'dlafigs19')
+dlafigs20.to_excel(writer, sheet_name= 'dlafigs20')
 
 writer.save()
 
