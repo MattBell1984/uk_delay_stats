@@ -122,7 +122,7 @@ print("=" * 40)
 #Print Below lists 10 flights with best early / ontime performance for all
 #airports for 2019
 
-mask_df1 = (df1[df1.number_flights_matched > 10])
+mask_df1 = (df1[df1.number_flights_matched > 4])
 #>>>>> Export to Excel
 print(mask_df1[['reporting_airport', 'origin_destination',\
     'on_time_or_early_percent','num_flights_ontime']]\
@@ -176,7 +176,7 @@ print("=" * 40)
 #Print Below lists 10 flights with best early / ontime performance for all
 #airports for 2020
 #>>>>> Export to Excel
-mask_df2 = (df2[df2.number_flights_matched > 10])
+mask_df2 = (df2[df2.number_flights_matched > 4])
 
 print(mask_df2[['reporting_airport', 'origin_destination',\
     'on_time_or_early_percent','num_flights_ontime']]\
