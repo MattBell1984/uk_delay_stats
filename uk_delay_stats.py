@@ -7,8 +7,6 @@ df_1020 = pd.read_csv('202010_Punctuality_Statistics_Full_Analysis.csv')
 df = df_1019
 dfb = df_1020
 
-writer = pd.ExcelWriter('otp_multiple.xlsx')
-
 destlist = ['HEATHROW', 'GATWICK']
 
 df1 = df[df['reporting_airport'].isin(destlist)].copy()
@@ -386,6 +384,8 @@ def excelwrite(otp2019, dla2019, otp2020, dla2020, dlafigs19, dlafigs20):
         duration, number of flights and percent of total for 2020
     """
 
+    writer = pd.ExcelWriter('otp_multiple.xlsx')
+
     otp2019.to_excel(writer, sheet_name='otp2019')
     dla2019.to_excel(writer, sheet_name='dla2019')
     otp2020.to_excel(writer, sheet_name='otp2020')
@@ -395,25 +395,21 @@ def excelwrite(otp2019, dla2019, otp2020, dla2020, dlafigs19, dlafigs20):
 
     writer.save()
 
+    print("Data exported to Excel successfully")
+
 def main():
-    while True:
-        dfdetail(df1, df2)
-        dftopten(df1, df2)
-        headlinefigs(df1, df2)
-        dlafigs(df1, df2)
-        excelwrite(otp2019, dla2019, otp2020, dla2020, dlafigs19, dlafigs20)
+    dfdetail(df1, df2)
+    dftopten(df1, df2)
+    headlinefigs(df1, df2)
+    dlafigs(df1, df2)
+    excelwrite(otp2019, dla2019, otp2020, dla2020, dlafigs19, dlafigs20)
 
 
-if __name__ == "__main__":
-	main()
-#TODO: Generate stats for delays - Mean, Median, Mode, LH / SH split
+
+main()
+
 #TODO: Consider data required and create Dataframe containing it. This must be
     #done to export to excel or CSV (to enable graphing). Else consider python
     #module that can create graphs.
 #TODO: (Stretch Goal) Consider dashboard / program to allow users to explore
 #data - similar to bikeshare.
-
-#Then we need to find out what % for each destiantion was delayed
-
-
-#Then we need to split by date - use run_date or reporting_period
