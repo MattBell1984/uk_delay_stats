@@ -7,6 +7,8 @@ df_1020 = pd.read_csv('202010_Punctuality_Statistics_Full_Analysis.csv')
 df = df_1019
 dfb = df_1020
 
+writer = pd.ExcelWriter('otp_multiple.xlsx')
+
 destlist = ['HEATHROW', 'GATWICK']
 
 df1 = df[df['reporting_airport'].isin(destlist)].copy()
@@ -54,6 +56,7 @@ df2['num_flights_ontime'] = (df2['number_flights_matched'] -\
 df2['num_flights_ontime'] = df2['num_flights_ontime'].round(0).astype(int)
 
 
+
 def dfdetail(df1, df2):
     """
     Prints pertinent details of the database.
@@ -96,7 +99,8 @@ def dfdetail(df1, df2):
 
 
 def dftopten(df1, df2):
-    """ Prints the 10 best / worst performing destinations for filtered database
+    """ Prints the 10 best / worst performing destinations for filtered
+    database and exports them to xlsx file.
 
     Args:
         (df) df1: Data Frame of 2019 data filtered by reporting airport
@@ -178,6 +182,12 @@ def dftopten(df1, df2):
     print("=" * 40)
     print("=" * 40)
 
+    otp2019.to_excel(writer, sheet_name='otp2019')
+    dla2019.to_excel(writer, sheet_name='dla2019')
+    otp2020.to_excel(writer, sheet_name='otp2020')
+    dla2020.to_excel(writer, sheet_name='dla2020')
+    writer.save()
+
     return otp2019, dla2019, otp2020, dla2020
 
 def headlinefigs(df1, df2):
@@ -209,7 +219,7 @@ def headlinefigs(df1, df2):
 def dlafigs(df1, df2):
     """
     Displays statistics on volume and percentage of flights delayed in 2019
-    and 2020
+    and 2020 and exports to xlsx file
 
     Args:
         (df) df1: Data Frame of 2019 data filtered by reporting airport
@@ -362,47 +372,18 @@ def dlafigs(df1, df2):
     print("{} - 181 to 360 mins late \n{} - more than 360 mins late"\
         .format(t360pc20, g360pc20))
 
-    return dlafigs19, dlafigs20
-
-
-def excelwrite(otp2019, dla2019, otp2020, dla2020, dlafigs19, dlafigs20):
-    """
-    Exports data generated to Excel
-
-    Args:
-    (df) otp2019: Pandas DataFrame containing 10 best performing routes
-        in 2019 organised by on_time_or_early_percent
-    (df) dla2019: Padas DataFrame containing 10 worst performing routes in
-        2019 organised by on_time_or_early_percent
-    (df) otp2020: Pandas DataFrame containing 10 best performing routes
-        in 2020 organised by on_time_or_early_percent
-    (df) dla2020: Pandas DataFrame containing 10 worst performing routes in
-        2020 organised by on_time_or_early_percent
-    (df) dlafigs19: Pandas Dataframe with a breakdown of flights by delay
-        duration, number of flights and percent of total for 2019
-    (df) dlafigs20: Pandas Dataframe with a breakdown of flights by delay
-        duration, number of flights and percent of total for 2020
-    """
-
-    writer = pd.ExcelWriter('otp_multiple.xlsx')
-
-    otp2019.to_excel(writer, sheet_name='otp2019')
-    dla2019.to_excel(writer, sheet_name='dla2019')
-    otp2020.to_excel(writer, sheet_name='otp2020')
-    dla2020.to_excel(writer, sheet_name='dla2020')
     dlafigs19.to_excel(writer, sheet_name= 'dlafigs19')
     dlafigs20.to_excel(writer, sheet_name= 'dlafigs20')
-
     writer.save()
 
-    print("Data exported to Excel successfully")
+    return dlafigs19, dlafigs20
+
 
 def main():
     dfdetail(df1, df2)
     dftopten(df1, df2)
     headlinefigs(df1, df2)
     dlafigs(df1, df2)
-    excelwrite(otp2019, dla2019, otp2020, dla2020, dlafigs19, dlafigs20)
 
 
 
