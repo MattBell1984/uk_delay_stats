@@ -1,10 +1,24 @@
+Date Created:
+
+2 Feb 2020
+
+==================================================
+
+Title:
+
+ UK Delay Statistics
+
+==================================================
+
+About:
+
 This project will aim to discover if there is any difference in the impact of
 weather related events before the COVID pandemic and during. This is to
 support the creation of a blog post or linkedin status and show off a little
 of my new python skills.
 
 The delay statistics are pulled from:
-https://www.caa.co.uk/Data-and-analysis/UK-aviation-market/Flight-reliability/Datasets/UK-flight-punctuality-data/
+https://www.caa.co.uk/Data-and-analysis/
 
 I have chosen October 19 and October 20 as these are the most recent months
 with data that have significant weather impacts during them, each having one
@@ -27,15 +41,19 @@ Other functions may be added to assist the user.
 
 ==================================================
 
-TODO list:
+Contribute:
 
-#TODO: Sort Destinations by early / late % needs to filter by number of
-#flights being operated there - ideally at least 12 to give a good spread over
-#the whole month.
-#TODO: Clean Data (Remove duplicates)
-#TODO: Generate stats for delays - Mean, Median, Mode, LH / SH split
-#TODO: Consider data required and create Dataframe containing it. This must be
-    #done to export to excel or CSV (to enable graphing). Else consider python
-    #module that can create graphs. 
-#TODO: (Stretch Goal) Consider dashboard / program to allow users to explore
-#data - similar to bikeshare.
+All contributions are welcome:
+- Read the issues, Fork the project and do a Pull Request.
+- Request a new topic creating a New issue with the enhancement tag.
+- Find any kind of errors in the cheat sheet and create a New issue with the
+    details or fork the project and do a Pull Request.
+- Suggest a better or more pythonic way for existing examples.
+
+==================================================
+
+Files Used:
+
+uk_delay_stats.py
+201910_Punctuality_Statistics_Full_Analysis.csv
+202010_Punctuality_Statistics_Full_Analysis.csv
